@@ -11,6 +11,9 @@
 
   <body>
     <%= render "shared/navigation" %>
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+    <%= render "shared/footer" %>
   </body>
 </html>
