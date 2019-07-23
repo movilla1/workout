@@ -83,7 +83,8 @@ guard :rspec, cmd: "bin/rspec" do
   watch(rails.app_controller)  { "#{rspec.spec_dir}/controllers" }
   watch(%r{^app/models/(.+)\.rb$}) { |m| "spec/features/#{m[1]}s" }
   watch(%r{^app/controllers/(.+)_(controller)\.rb$}) { |m| "spec/features/#{m[1]}" }
-
+  watch(%r{^app/views/layout/application.html.erb$}) { "spec/features" }
+  watch(%r{^app/views/shared/(.+)\.(.+)$}) { "spec/features" }
   watch(rails.routes) { "#{rspec.spec_dir}" }
   # Capybara features specs
   watch(rails.view_dirs)     { |m| "spec/features/#{m[1]}" }
