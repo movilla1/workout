@@ -25,6 +25,9 @@
         <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
       </li>
       <%- if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Sign out", destroy_user_session_path, class: "nav-link", method: :delete %>
+        </li>
         <li class="nav-text">
           <p>Signed in as <%= current_user.email %>
         </li>
