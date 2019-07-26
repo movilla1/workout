@@ -11,5 +11,15 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
  @import "bootstrap";
- 
+.my-light {
+  background-color: #48A998;
+}
+.footer {
+  background-color: #48A998;
+}
+.nav-text {
+  display: block;
+  padding: 0.5rem 1rem;
+}
