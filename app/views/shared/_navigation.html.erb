@@ -9,9 +9,11 @@
       <li class="nav-item">
         <%= link_to "Home", root_path, class: "nav-link" %></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
+      <%- if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "My Lounge", user_exercises_path(user_id: current_user.id), class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

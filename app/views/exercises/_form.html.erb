@@ -1,0 +1,19 @@
+<%= form_for [@user, @exercise] do |f|%>
+  <div class="form-group">
+    <label for="exercise_workout">Workout Details</label>
+    <%= f.text_field :workout, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <label for="exercise_duration_in_minutes">Duration</label>
+    <%= f.text_field :duration_in_minutes, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <label for="exercise_workout_date">Activity Date</label>
+    <%= f.text_field :workout_date, class: "form-control" %>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary">Create Exercise</button>
+    </div>
+  </div>
+<% end %>
