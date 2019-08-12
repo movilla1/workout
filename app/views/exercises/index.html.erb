@@ -1,3 +1,29 @@
-<div class="col-8">
-  <%= link_to "New Workout", new_user_exercise_path(current_user) %>
+<div class="container-fluid">
+  <div class="card">
+    <% if @exercises.present?%>
+      <div class="heading">
+        <div class="col-3">Activity Date</div>
+        <div class="col-3">Duration in minutes</div>
+        <div class="col-3">Description</div>
+        <div class="col-3">Operations</div>
+      </div>
+      <div class="card-content">
+      <% @exercises.each do |exercise| %>
+        <div class="row">
+          <div class="col-3"><%= exercise.workout_date %></div>
+          <div class="col-3"><%= exercise.duration_in_minutes %></div>
+          <div class="col-3"><%= exercise.workout %></div>
+          <div class="col-3">"Operations"</div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="alert alert-info">
+      <h3>No workout data found</h3>
+    </div>
+  <% end %>
+  <div class="col-8">
+    <%= link_to "New Workout", new_user_exercise_path(current_user) %>
+  </div>
 </div>
