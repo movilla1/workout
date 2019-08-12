@@ -11,8 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  */
-
- @import "bootstrap";
+@import "jquery-ui/datepicker";
+@import "bootstrap";
 .my-light {
   background-color: #48A998;
 }

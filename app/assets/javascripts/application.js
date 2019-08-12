@@ -11,9 +11,15 @@
 // about supported directives.
 //
 //= require jquery3
+//= require jquery-ui
 //= require popper
 //= require bootstrap
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('#exercise_workout_date').datepicker({
+    dateFormat: 'yy-mm-dd'
+  });
+});
