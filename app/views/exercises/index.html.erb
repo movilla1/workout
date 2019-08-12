@@ -1,11 +1,13 @@
 <div class="container-fluid">
   <div class="card">
     <% if @exercises.present?%>
-      <div class="heading">
-        <div class="col-3">Activity Date</div>
-        <div class="col-3">Duration in minutes</div>
-        <div class="col-3">Description</div>
-        <div class="col-3">Operations</div>
+      <div class="card-heading">
+        <div class="row">
+          <div class="col-3 card-title">Activity Date</div>
+          <div class="col-3 card-title">Duration in minutes</div>
+          <div class="col-3 card-title">Description</div>
+          <div class="col-3 card-title">Operations</div>
+        </div>
       </div>
       <div class="card-content">
       <% @exercises.each do |exercise| %>
