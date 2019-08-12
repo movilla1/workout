@@ -9,6 +9,7 @@ RSpec.feature "Listing exercises" do
     @ex2 = @john.exercises.create(duration_in_minutes: "5", workout: "That is not", workout_date: 2.days.ago)
     @ex3 = @john.exercises.create(duration_in_minutes: "12", workout: "laying down", workout_date: 9.days.ago)
   end
+
   scenario "Shows User's workout for the last 7 days" do
     visit "/"
     click_link "My Lounge"

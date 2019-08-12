@@ -14,7 +14,7 @@ RSpec.feature "Creating exercise" do
 
     fill_in "Duration",	with: "30"
     fill_in "Workout Details",	with: "Weight Lifting"
-    fill_in "Activity Date",	with: "2019-07-27"
+    fill_in "Activity Date",	with: 3.days.ago
     click_button "Create Exercise"
     expect(page).to have_content("Exercise has been created")
     exercise = Exercise.last
@@ -30,7 +30,7 @@ RSpec.feature "Creating exercise" do
 
     fill_in "Duration",	with: ""
     fill_in "Workout Details",	with: "Weight Lifting"
-    fill_in "Activity Date",	with: "2019-07-27"
+    fill_in "Activity Date",	with: 3.days.ago
     click_button "Create Exercise"
     expect(page).to have_content("Exercise has failed to save")
     expect(current_path).to eq(user_exercises_path(user_id: @john.id))
