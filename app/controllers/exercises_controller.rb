@@ -17,6 +17,7 @@ class ExercisesController < ApplicationController
       redirect_to user_exercise_path(current_user, @exercise), notice: "Exercise has been created"
     else
       @user = current_user
+      flash[:error] = "Exercise has failed to save"
       render :new
     end
   end
