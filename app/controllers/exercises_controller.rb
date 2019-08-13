@@ -1,12 +1,15 @@
 # Class for exercises
 class ExercisesController < ApplicationController
-  before_action :set_exercise, only: [:show, :destroy, :edit]
+  before_action :set_exercise, only: [:show, :destroy, :edit, :update]
 
   def index
     @exercises = current_user.exercises
   end
   
-  def edit; end
+  def edit
+    @user = current_user
+  end
+
   def show; end
 
   def new
@@ -22,6 +25,15 @@ class ExercisesController < ApplicationController
       @user = current_user
       flash[:error] = "Exercise has failed to save"
       render :new
+    end
+  end
+
+  def update
+    if @exercise.update(exercise_params)
+      redirect_to user_exercise_path(current_user, @exercise), notice: "Exercise Updated Successfully"
+    else
+      @user = current_user
+      render :edit, error: "Failed to update"
     end
   end
 

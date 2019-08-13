@@ -12,13 +12,13 @@ RSpec.feature "Listing exercises" do
     visit "/"
     click_link "My Lounge"
     path = "/users/#{@john.id}/exercises/#{@ex1.id}/edit"
-    link = "a[href=\'#{path}\'"
+    link = "a[href=\'#{path}\']"
     find(link).click
 
     fill_in "Duration", with: 44
-    click_button "Save"
+    click_button "Save Exercise"
 
-    expect(page).to have_content("Exercise updated successfully")
+    expect(page).to have_content("Exercise Updated Successfully")
     expect(page).not_to have_content("33")
     expect(page).to have_content("44")
   end

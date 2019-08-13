@@ -1,5 +1,29 @@
 <div class="row">
   <div class="col-12">
-    <h3>WIP</h3>
+    <h3>Exercise for <%= @exercise.user.email %></h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">
+    Workout Details
+  </div>
+  <div class="col-6">
+    <%= @exercise.workout %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">
+    Workout Duration
+  </div>
+  <div class="col-6">
+    <%= @exercise.duration_in_minutes %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">
+    Workout Date
+  </div>
+  <div class="col-6">
+    <%= @exercise.workout_date %>
   </div>
 </div>
