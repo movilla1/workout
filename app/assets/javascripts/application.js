@@ -14,12 +14,7 @@
 //= require jquery-ui
 //= require popper
 //= require bootstrap
+//= require d3
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
-
-$(function() {
-  $('#exercise_workout_date').datepicker({
-    dateFormat: 'yy-mm-dd'
-  });
-});

@@ -26,6 +26,7 @@
     </div>
   <% end %>
   <div class="col-8">
-    <%= link_to "New Workout", new_user_exercise_path(current_user) %>
+    <%= link_to "New Workout", new_user_exercise_path(current_user), class: "btn btn-default" %>
   </div>
+  <%= content_tag :div, "", id: "graph-chart", data: { workouts: @exercises } %>
 </div>
