@@ -1,6 +1,6 @@
 # Class for exercises
 class ExercisesController < ApplicationController
-  before_action :set_exercise, only: [:show, :destroy, :edit, :update]
+  before_action :set_exercise, only: [:show, :destroy, :edit, :update, :destroy]
 
   def index
     @exercises = current_user.exercises
@@ -35,6 +35,15 @@ class ExercisesController < ApplicationController
       @user = current_user
       render :edit, error: "Failed to update"
     end
+  end
+
+  def destroy
+    if @exercise.destroy
+      flash[:notice] = "Exercise Deleted Successfully"
+    else
+      flash[:error] = "Failed to delete Exercise"
+    end
+    redirect_to user_exercises_path(current_user)
   end
 
   private

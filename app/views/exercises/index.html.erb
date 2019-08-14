@@ -16,7 +16,8 @@
           <div class="col-3"><%= exercise.duration_in_minutes %></div>
           <div class="col-3"><%= exercise.workout %></div>
           <div class="col-3">
-            <%= link_to "edit", edit_user_exercise_path(current_user, exercise) %>
+            <%= link_to "Edit", edit_user_exercise_path(current_user, exercise) %><br/>
+            <%= link_to "Delete", user_exercise_path(current_user, exercise), method: :delete %>
           </div>
         </div>
       <% end %>
