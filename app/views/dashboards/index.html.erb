@@ -6,3 +6,24 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <h3>List of Members</h3>
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-2">First Name</div>
+        <div class="col-3">Last Name</div>
+        <div class="col-3">E-mail</div>
+        <div class="col-3">Member since</div>
+      </div>
+      <% @athletes.each do |athlete| %>
+        <div class="row">
+          <div class="col-2"><%= athlete.first_name %></div>
+          <div class="col-3"><%= athlete.last_name %></div>
+          <div class="col-3"><%= athlete.email %></div>
+          <div class="col-3"><%= athlete.created_at %></div>
+        </div>
+      <%end %>
+    </div>
+  </div>
+</div>
