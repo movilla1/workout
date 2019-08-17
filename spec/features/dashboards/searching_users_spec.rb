@@ -21,13 +21,21 @@ RSpec.feature 'List members on home page' do
     end
   end
 
-  scenario 'Listing all members on dashboard' do
-    visit '/'
+  scenario "existing users" do
+    visit "/"
+    fill_in "keywords", with: "Joe"
+    click_button "Search"
 
-    expect(page).to have_content('List of Members')
-    expect(page).to have_content(@john.first_name)
-    expect(page).to have_content(@fred.last_name)
-    expect(page).not_to have_content('Joe15')
-    expect(page).to have_content('Next')
+    expect(page).to have_content("figgy10")
+    expect(current_path).to eq("/search")
+  end
+
+  scenario "User not found" do
+    visit "/"
+    fill_in "keywords", with: "Wilbourgh Theodore"
+    click_button "Search"
+
+    expect(page).to have_content("No user found with the requested details")
+    expect(current_path).to eq("/search")
   end
 end
