@@ -26,4 +26,7 @@
       <%end %>
     </div>
   </div>
+  <div class="row">
+    <%= will_paginate @athletes, render: BootstrapPagination::Rails, class: "pull-left paginate" %>
+  </div>
 </div>
