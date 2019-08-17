@@ -32,7 +32,7 @@
           <%= link_to "Sign out", destroy_user_session_path, class: "nav-link", method: :delete %>
         </li>
         <li class="nav-text">
-          <span>Signed in as <%= current_user.email %></span>
+          <span>Signed in as <%= current_user.full_name %></span>
         </li>
       <% end %>
     </ul>
