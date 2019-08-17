@@ -25,4 +25,16 @@ RSpec.feature "Users signup" do
     click_button "Sign up"
     expect(page).to have_content("prohibited this user from being saved")
   end
+
+  scenario "without name" do
+    visit "/"
+    click_link "Sign Up"
+    fill_in "First name", with: ""
+    fill_in "Last name", with: ""
+    fill_in "Email",	with: "test@example.com"
+    fill_in "Password",	with: "pass123"
+    fill_in "Password confirmation",	with: "pass123"
+    click_button "Sign up"
+    expect(page).to have_content("First name can't be blank")
+  end
 end
