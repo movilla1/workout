@@ -10,18 +10,26 @@
   <h3>List of Members</h3>
   <div class="row">
     <div class="col-12">
-      <div class="row">
-        <div class="col-2">First Name</div>
-        <div class="col-3">Last Name</div>
+      <div class="row heading">
+        <div class="col-3">Full Name</div>
         <div class="col-3">E-mail</div>
         <div class="col-3">Member since</div>
+        <div class="col-2">Operations</div>
       </div>
       <% @athletes.each do |athlete| %>
         <div class="row">
-          <div class="col-2"><%= athlete.first_name %></div>
-          <div class="col-3"><%= athlete.last_name %></div>
+          <div class="col-3"><%= athlete.full_name %></div>
           <div class="col-3"><%= athlete.email %></div>
           <div class="col-3"><%= athlete.created_at %></div>
+          <div class="col-2">
+            <% if current_user%>
+              <%= link_to "Follow",
+                friendships_path(friend_id: athlete.id),
+                method: :post,
+                class: "btn btn-info pull-right" unless current_user.follows_or_same?(athlete)
+              %>
+            <% end %>
+          </div>
         </div>
       <%end %>
     </div>
