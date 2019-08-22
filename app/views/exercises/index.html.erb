@@ -10,26 +10,40 @@
         </div>
       </div>
       <div class="card-content">
-      <% @exercises.each do |exercise| %>
-        <div class="row">
-          <div class="col-3"><%= exercise.workout_date %></div>
-          <div class="col-3"><%= exercise.duration_in_minutes %></div>
-          <div class="col-3"><%= exercise.workout %></div>
-          <div class="col-3">
-            <%= link_to "Edit", edit_user_exercise_path(current_user, exercise) %><br/>
-            <%= link_to "Delete", user_exercise_path(current_user, exercise), method: :delete %>
+        <% @exercises.each do |exercise| %>
+          <div class="row">
+            <div class="col-3"><%= exercise.workout_date %></div>
+            <div class="col-3"><%= exercise.duration_in_minutes %></div>
+            <div class="col-3"><%= exercise.workout %></div>
+            <div class="col-3">
+              <%= link_to "Edit", edit_user_exercise_path(current_user, exercise) %><br/>
+              <%= link_to "Delete", user_exercise_path(current_user, exercise), method: :delete %>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
       </div>
-    </div>
-  <% else %>
-    <div class="alert alert-info">
-      <h3>No workout data found</h3>
-    </div>
-  <% end %>
+    <% else %>
+      <div class="alert alert-info">
+        <h3>No workout data found</h3>
+      </div>
+    <% end %>
+  </div>
   <div class="col-8">
     <%= link_to "New Workout", new_user_exercise_path(current_user), class: "btn btn-default" %>
   </div>
+  <div class="col-4">
+    <h1>My Friends</h1>
+    <% @friends.each do |friend| %>
+      <div class="row">
+        <div class="col-4"><%= link_to friend.full_name, friendship_path(current_user.current_friendship(friend)) %></div>
+        <div class="col-4">
+          <%= link_to "Unfollow",
+            friendship_path(current_user.current_friendship(friend)),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "btn btn-success link" %></div>
+      </div>
+    <% end %>
+  </div>
   <%= content_tag :div, "", id: "graph-chart", data: { workouts: @exercises } %>
-</div>
+  </div>

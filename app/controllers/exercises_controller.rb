@@ -4,8 +4,9 @@ class ExercisesController < ApplicationController
 
   def index
     @exercises = current_user.exercises
+    @friends = current_user.friends
   end
-  
+
   def edit
     @user = current_user
   end
