@@ -18,11 +18,11 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}".strip
   end
 
-  def follows_or_same?(new_friend)
-    friendships.map(&:friend).include?(new_friend) || self == new_friend
+  def follows_or_same?(new_friend_id)
+    friendships.map(&:friend_id).include?(new_friend_id) || self.id == new_friend_id
   end
 
-  def current_friendship(friend)
-    friendships.where(friend: friend).try(:first)
+  def current_friendship(friend_id)
+    friendships.where(friend_id: friend_id).try(:first)
   end
 end
