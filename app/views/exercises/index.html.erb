@@ -34,9 +34,9 @@
         <%= link_to "New Workout", new_user_exercise_path(current_user), class: "btn btn-warning" %>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-5">
       <h1>My Friends</h1>
-      <div id="chat-window">
+      <div id="chat-window" class='col-12'>
         <header class="text-center"><%= current_room.name %></header>
         <div class="col-2" id="followers">
           <% @followers.each do |follower| %>
@@ -44,10 +44,12 @@
             <br/>
           <% end %>
         </div>
-        <div id="chat-box" data-channel="rooms" data-room-id=<%= current_room.id %>>
-          <% @messages.each do |message| %>
-            <%= render partial: 'shared/message', locals: { message: message }%>
-          <% end %>
+        <div class="col-10" id="messages-box">
+          <div id="chat-box" data-channel="rooms" data-room-id=<%= current_room.id %>>
+            <% @messages.each do |message| %>
+              <%= render partial: 'shared/message', locals: { message: message }%>
+            <% end %>
+          </div>
           <div id="form-box">
             <%= form_for @message do |f| %>
               <div class="input-group">
