@@ -1,10 +1,14 @@
 # Class for exercises
 class ExercisesController < ApplicationController
   before_action :set_exercise, only: [:show, :destroy, :edit, :update, :destroy]
+  before_action :set_current_room
 
   def index
     @exercises = current_user.exercises
     @friends = current_user.friends
+    @message = Message.new
+    @messages = current_user.messages if current_room
+    @followers = Friendship.where(friend_id: current_user.id)
   end
 
   def edit
@@ -55,5 +59,10 @@ class ExercisesController < ApplicationController
 
   def set_exercise
     @exercise = current_user.exercises.find(params[:id])
+  end
+
+  def set_current_room
+    @room = params[:room_id].present? ?  Room.find(params[:room_id]) : current_user.room
+    session[:current_room] = @room.id if @room.present?
   end
 end
