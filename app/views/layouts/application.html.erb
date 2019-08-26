@@ -12,8 +12,9 @@
   <body>
     <%= render "shared/navigation" %>
     <%= render "shared/flashes" %>
-    <div class="container-fluid">
+    <div class="<%= content_for?(:whole_page) ? 'container-fluid' : 'container' %>">
       <%= yield %>
+      <%= yield :whole_page%>
     </div>
     <%= render "shared/footer" %>
   </body>
